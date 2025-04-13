@@ -1,0 +1,45 @@
+@use "sass:math";
+
+$thickness: 8px;
+.rp- {
+  &resizeable-panels {
+    display: flex;
+    > * {
+      min-height: min-content;
+      min-width: min-content;
+    }
+  }
+
+  &horizontal {
+    flex-direction: row;
+
+    .rp-resizer {
+      cursor: col-resize;
+      width: $thickness;
+      margin-left: math.div(-$thickness, 2);
+      margin-right: math.div(-$thickness, 2);
+    }
+  }
+
+  &vertical {
+    flex-direction: column;
+
+    .rp-resizer {
+      cursor: row-resize;
+      height: $thickness;
+      margin-top: math.div(-$thickness, 2);
+      margin-bottom: math.div(-$thickness, 2);
+    }
+  }
+
+  &resizer {
+    z-index: 2;
+
+    background-color: transparent;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

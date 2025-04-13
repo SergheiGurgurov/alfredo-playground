@@ -1,0 +1,133 @@
+@mixin iconColor($varName) {
+  &#{$varName} {
+    color: var(--#{$varName});
+    svg,
+    svg * {
+      fill: var(--#{$varName});
+    }
+  }
+}
+
+@mixin iconStroke($varName) {
+  &stroke-#{$varName} {
+    svg,
+    svg * {
+      stroke: var(--#{$varName});
+    }
+  }
+}
+
+@mixin bgColor($varName) {
+  &#{$varName} {
+    background-color: var(--#{$varName}) !important;
+  }
+}
+
+@mixin iconScale($size) {
+  &[size="#{$size}"] {
+    width: 24px * $size !important;
+    height: 24px * $size !important;
+
+    svg {
+      height: 100% !important;
+      width: 100% !important;
+      display: block;
+    }
+  }
+}
+
+@mixin iconSize($size) {
+  width: $size !important;
+  height: $size !important;
+
+  svg {
+    height: 100% !important;
+    width: 100% !important;
+    display: block;
+  }
+}
+
+@mixin marginLeft($name, $size) {
+  .ml-#{$name} {
+    margin-left: $size !important;
+  }
+}
+@mixin marginRight($name, $size) {
+  .mr-#{$name} {
+    margin-right: $size !important;
+  }
+}
+@mixin marginTop($name, $size) {
+  .mt-#{$name} {
+    margin-top: $size !important;
+  }
+}
+@mixin marginBottom($name, $size) {
+  .mb-#{$name} {
+    margin-bottom: $size !important;
+  }
+}
+@mixin margin($name, $size) {
+  .m-#{$name} {
+    margin: $size !important;
+  }
+}
+
+@mixin paddingLeft($name, $size) {
+  .pl-#{$name} {
+    padding-left: $size !important;
+  }
+}
+
+@mixin paddingRight($name, $size) {
+  .pr-#{$name} {
+    padding-right: $size !important;
+  }
+}
+
+@mixin paddingTop($name, $size) {
+  .pt-#{$name} {
+    padding-top: $size !important;
+  }
+}
+
+@mixin paddingBottom($name, $size) {
+  .pb-#{$name} {
+    padding-bottom: $size !important;
+  }
+}
+
+@mixin padding($name, $size) {
+  .p-#{$name} {
+    padding: $size !important;
+  }
+}
+
+@mixin gap($name, $size) {
+  .gap-#{$name} {
+    gap: $size !important;
+  }
+}
+
+@mixin borderRadius($name, $size) {
+  .br-#{$name} {
+    border-radius: $size !important;
+  }
+
+  .br-top-#{$name} {
+    border-top-left-radius: $size !important;
+    border-top-right-radius: $size !important;
+  }
+  .br-bottom-#{$name} {
+    border-bottom-left-radius: $size !important;
+    border-bottom-right-radius: $size !important;
+  }
+  .br-left-#{$name} {
+    border-top-left-radius: $size !important;
+    border-bottom-left-radius: $size !important;
+  }
+  .br-right-#{$name} {
+    border-top-right-radius: $size !important;
+    border-bottom-right-radius: $size !important;
+  }
+}

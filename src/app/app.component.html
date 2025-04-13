@@ -1,0 +1,58 @@
+<header class="d-flex gap-1 p-1 pl-2 pr-2 align-items-center bg--dark-3 text--primary">
+  <img class="h-3" src="assets/italy.png" alt="Italian Flag" />
+  <h1 class="fw-600 fs-5">Alfredo Playground</h1>
+  <button
+    (click)="runCode()"
+    class="ml-auto br-2 p-small pl-2 pr-2 b-none bg--primary text--white d-flex align-items-center gap-small"
+  >
+    <span class="material-symbols-outlined">play_arrow</span>
+    <span>Run Code</span>
+  </button>
+  <button class="br-2 p-small pl-2 pr-2 b-none d-flex align-items-center gap-small text--white bg--dark-4">
+    <span class="material-symbols-outlined">description</span>
+    Docs
+  </button>
+</header>
+<div [resizeablePanels]="'horizontal'" class="flex-grow">
+  <div class="monaco">
+    <div class="p-1 d-flex align-items-center gap-small bg--dark-2 text--dim-2 fs-small panel-heading">
+      <span class="material-symbols-outlined">code</span>
+      <span>Code</span>
+    </div>
+    <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+  </div>
+  <div class="flex-grow bg--dark-1 text--dim-2">
+    <div class="p-1 d-flex align-items-center gap-small bg--dark-2 fs-small panel-heading">
+      <span>Output</span>
+
+      <!-- status ex: running, stopped, error -->
+
+      @switch (codeExecutionStatus) {
+        @case (ECodeExecutionStatus.NONE) {}
+        @case (ECodeExecutionStatus.RUNNING) {
+          <span class="fs-small bg--status-green-transparent text--status-green p-small br-2 pl-1 pr-1 ml-small">
+            Running
+          </span>
+        }
+        @case (ECodeExecutionStatus.DONE) {
+          <span class="fs-small bg--status-green-transparent text--status-green p-small br-2 pl-1 pr-1 ml-small">
+            OK
+          </span>
+        }
+        @case (ECodeExecutionStatus.ERROR) {
+          <span class="fs-small bg--status-red-transparent text--status-red p-small br-2 pl-1 pr-1 ml-small">
+            Error
+          </span>
+        }
+      }
+    </div>
+    <pre class="p-2 text--light-1">{{ codeOutput }}</pre>
+  </div>
+</div>
+<footer class="d-flex justify-content-between align-items-center bg--dark-3 text--dim-2 p-1 fs-small">
+  <span>Alfredo-Lang v1.0.0</span>
+  <span>
+    Made with ❤️ by
+    <a href="https://github.com/SergheiGurgurov" target="_blank">Serghei Gurgurov</a>
+  </span>
+</footer>

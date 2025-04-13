@@ -1,0 +1,144 @@
+@use "./utils.scss" as utils;
+@use "sass:math";
+
+$gr: 1.618;
+$size1: math.div(1rem, $gr);
+$size2: $size1 * $gr;
+$size3: $size2 * $gr;
+$size4: $size3 * $gr;
+
+:root {
+  --gr: #{$gr};
+  --size1: #{$size1};
+  --small: calc(var(--size1) / var(--gr));
+  --min: calc(var(--small) / var(--gr));
+  --size2: #{$size2};
+  --size3: #{$size3};
+  --size4: #{$size4};
+}
+
+/* #region GAP */
+@include utils.gap("small", var(--small));
+@include utils.gap(1, var(--size1));
+@include utils.gap(2, var(--size2));
+@include utils.gap(3, var(--size3));
+@include utils.gap(4, var(--size4));
+/* #endregion */
+
+/* #region PADDING */
+@include utils.padding(0, 0);
+@include utils.padding("small", var(--small));
+@include utils.padding(1, var(--size1));
+@include utils.padding(2, var(--size2));
+@include utils.padding(3, var(--size3));
+@include utils.padding(4, var(--size4));
+
+@include utils.paddingLeft(0, 0);
+@include utils.paddingLeft("small", var(--small));
+@include utils.paddingLeft(1, var(--size1));
+@include utils.paddingLeft(2, var(--size2));
+@include utils.paddingLeft(3, var(--size3));
+@include utils.paddingLeft(4, var(--size4));
+
+@include utils.paddingRight(0, 0);
+@include utils.paddingRight("small", var(--small));
+@include utils.paddingRight(1, var(--size1));
+@include utils.paddingRight(2, var(--size2));
+@include utils.paddingRight(3, var(--size3));
+@include utils.paddingRight(4, var(--size4));
+
+@include utils.paddingTop(0, 0);
+@include utils.paddingTop("small", var(--small));
+@include utils.paddingTop(1, var(--size1));
+@include utils.paddingTop(2, var(--size2));
+@include utils.paddingTop(3, var(--size3));
+@include utils.paddingTop(4, var(--size4));
+
+@include utils.paddingBottom(0, 0);
+@include utils.paddingBottom("small", var(--small));
+@include utils.paddingBottom(1, var(--size1));
+@include utils.paddingBottom(2, var(--size2));
+@include utils.paddingBottom(3, var(--size3));
+@include utils.paddingBottom(4, var(--size4));
+/* #endregion */
+
+/* #region MARGIN */
+@include utils.margin(0, 0);
+@include utils.margin("small", var(--small));
+@include utils.margin(1, var(--size1));
+@include utils.margin(2, var(--size2));
+@include utils.margin(3, var(--size3));
+@include utils.margin(4, var(--size4));
+@include utils.margin(auto, auto);
+
+@include utils.marginLeft("small", var(--small));
+@include utils.marginLeft(1, var(--size1));
+@include utils.marginLeft(2, var(--size2));
+@include utils.marginLeft(3, var(--size3));
+@include utils.marginLeft(4, var(--size4));
+@include utils.marginLeft(auto, auto);
+
+@include utils.marginRight("small", var(--small));
+@include utils.marginRight(1, var(--size1));
+@include utils.marginRight(2, var(--size2));
+@include utils.marginRight(3, var(--size3));
+@include utils.marginRight(4, var(--size4));
+@include utils.marginRight(auto, auto);
+
+@include utils.marginTop("small", var(--small));
+@include utils.marginTop(1, var(--size1));
+@include utils.marginTop(2, var(--size2));
+@include utils.marginTop(3, var(--size3));
+@include utils.marginTop(4, var(--size4));
+@include utils.marginTop(auto, auto);
+
+@include utils.marginBottom("small", var(--small));
+@include utils.marginBottom(1, var(--size1));
+@include utils.marginBottom(2, var(--size2));
+@include utils.marginBottom(3, var(--size3));
+@include utils.marginBottom(4, var(--size4));
+@include utils.marginBottom(auto, auto);
+/* #endregion */
+
+/* #region BORDER RADIUS */
+@include utils.borderRadius(0, 0);
+@include utils.borderRadius("min", var(--min));
+@include utils.borderRadius("small", var(--small));
+@include utils.borderRadius(1, $size1);
+@include utils.borderRadius(2, $size2);
+@include utils.borderRadius(3, $size3);
+@include utils.borderRadius(4, $size4);
+@include utils.borderRadius(50, 50%);
+/* #endregion */
+
+.h-1 {
+  height: var(--size1);
+}
+
+.h-2 {
+  height: var(--size2);
+}
+
+.h-3 {
+  height: var(--size3);
+}
+
+.h-4 {
+  height: var(--size4);
+}
+
+.w-1 {
+  width: var(--size1);
+}
+
+.w-2 {
+  width: var(--size2);
+}
+
+.w-3 {
+  width: var(--size3);
+}
+
+.w-4 {
+  width: var(--size4);
+}

@@ -1,0 +1,39 @@
+{
+  "plugins": [
+    "prettier-plugin-organize-attributes"
+  ],
+  "attributeGroups": [
+    "$ANGULAR_ELEMENT_REF",
+    "^mat",
+    "^\\[mat",
+    "^\\[(?!attr)(?!aria)",
+    "$ANGULAR_STRUCTURAL_DIRECTIVE",
+    "$ANGULAR_TWO_WAY_BINDING",
+    "$ANGULAR_OUTPUT",
+    "^\\[attr",
+    "^\\[aria",
+    "$ARIA",
+    "$CLASS",
+    "^let-"
+  ],
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": true,
+  "printWidth": 120,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
+  "arrowParens": "always",
+  "htmlWhitespaceSensitivity": "ignore",
+  "bracketSameLine": false,
+  "quoteProps": "consistent",
+  "experimentalTernaries": true,
+  "overrides": [
+    {
+      "files": "**/*.hbs",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}

@@ -24,7 +24,7 @@ export const appConfig: ApplicationConfig = {
       },
       requireConfig: {
         paths: {
-          vs: window.location.origin + '/assets/monaco/min/vs',
+          vs: window.location.origin + '/alfredo-playground' + '/assets/monaco/min/vs',
         },
       },
     }),

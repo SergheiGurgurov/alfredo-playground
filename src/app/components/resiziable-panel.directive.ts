@@ -1,4 +1,5 @@
-import { Directive, ElementRef, inject, input, output } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Directive, ElementRef, inject, input, output, PLATFORM_ID, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[resizeablePanels]',
@@ -11,6 +12,9 @@ export class ResizeablePanelDirective {
   onResize = output();
 
   nativeElement = inject(ElementRef).nativeElement as HTMLElement;
+  renderer = inject(Renderer2);
+
+  isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   ngOnInit() {
     let classes = ['rp-resizeable-panels'];
     switch (this.direction()) {
@@ -21,7 +25,14 @@ export class ResizeablePanelDirective {
         classes.push('rp-vertical');
         break;
     }
-    this.nativeElement.classList.add(...classes);
+
+    for (let className of classes) {
+      this.renderer.addClass(this.nativeElement, className);
+    }
+
+    if (!this.isBrowser) {
+      return;
+    }
     for (let child of [...this.nativeElement.children]) {
       const last = child === this.nativeElement.lastElementChild;
       if (last) {
@@ -36,11 +47,7 @@ export class ResizeablePanelDirective {
     }
   }
 
-  manageDrag(
-    dragger: HTMLElement,
-    previous: HTMLElement,
-    direction: ResizeDirection
-  ) {
+  manageDrag(dragger: HTMLElement, previous: HTMLElement, direction: ResizeDirection) {
     let isDragging = false;
 
     dragger.addEventListener('mousedown', (e) => {

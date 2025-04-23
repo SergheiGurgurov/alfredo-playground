@@ -32,7 +32,7 @@ export class AppComponent {
   runCode() {
     this.codeExecutionStatus = ECodeExecutionStatus.RUNNING;
     this.codeOutput = '';
-    alfredo.execute(this.code);
+    console.log('execution result: ', alfredo.execute(this.code));
     this.codeExecutionStatus = ECodeExecutionStatus.DONE;
   }
 }

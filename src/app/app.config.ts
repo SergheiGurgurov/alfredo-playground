@@ -1,8 +1,16 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideMonacoEditor } from 'ngx-monaco-editor-v2';
 import { routes } from './app.routes';
+
+let vsPath;
+if (typeof window !== 'undefined') {
+  vsPath = window.location.origin + '/alfredo-playground' + '/assets/monaco/min/vs';
+} else {
+  vsPath = '';
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,9 +32,10 @@ export const appConfig: ApplicationConfig = {
       },
       requireConfig: {
         paths: {
-          vs: window.location.origin + '/alfredo-playground' + '/assets/monaco/min/vs',
+          vs: vsPath,
         },
       },
     }),
+    provideClientHydration(withEventReplay()),
   ],
 };

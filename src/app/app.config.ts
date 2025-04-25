@@ -13,7 +13,7 @@ declare global {
 
 let vsPath;
 if (typeof window !== 'undefined') {
-  vsPath = window.location.origin + '/alfredo-playground' + '/assets/monaco/min/vs';
+  vsPath = window.location.origin + '/assets/monaco/min/vs';
 } else {
   vsPath = '';
 }

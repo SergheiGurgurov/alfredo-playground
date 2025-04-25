@@ -15,10 +15,35 @@ export class AppComponent {
   editorOptions: editor.IStandaloneEditorConstructionOptions = {
     theme: 'vs-dark',
     automaticLayout: true,
-    language: 'alfredo-lang'
+    language: 'alfredo-lang',
   };
 
-  code: string = 'stampa("Ciao Mondo!")';
+  code: string = [
+    `/* crea una variabile */`,
+    `var nome = "giorgio"`,
+    ``,
+    `/* stampa un valore */`,
+    `stampa("ciao " + nome)`,
+    ``,
+    `/* se...altrimenti... */`,
+    `se (nome == "giorgio") {`,
+    `  stampa("sei giorgio")`,
+    `} altrimenti {`,
+    `  stampa("sei un altro")`,
+    `}`,
+    ``,
+    `/* funzioni */`,
+    `var saluta = fn(nome) {`,
+    `  stampa("ciao " + nome)`,
+    `}`,
+    ``,
+    `/*`,
+    `Psst.. puoi usare la funzione "chiedi"`,
+    `per ricevere input dall'utente:`,
+    ``,
+    `var nome = chiedi("come ti chiami?")`,
+    `*/`,
+  ].join('\n');
   codeOutput: string = '';
   codeExecutionStatus: ECodeExecutionStatus = ECodeExecutionStatus.NONE;
   ECodeExecutionStatus = ECodeExecutionStatus;

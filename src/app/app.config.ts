@@ -48,7 +48,7 @@ export const appConfig: ApplicationConfig = {
         });
 
         monaco.languages.setMonarchTokensProvider('alfredo-lang', {
-          keywords: ['var', 'se', 'altrimenti', 'torna'],
+          keywords: ['var', 'se', 'altrimenti', 'torna', 'fn'],
           tokenizer: {
             root: [
               [/\/\*/, 'comment', '@comment'],
